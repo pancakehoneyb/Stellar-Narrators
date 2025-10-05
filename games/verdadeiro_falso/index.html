@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz: True or False</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    #exit-btn {
+        background: linear-gradient(45deg, #FF6B6B, #F06595);
+        color: #fff;
+        border: none;
+        border-radius: 1rem; /* Borda arredondada */
+        padding: 1rem 2rem;
+        
+        /* Fonte e Estilo do Texto */
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        cursor: pointer;
+        
+        /* Sombra e Animação */
+        box-shadow: 0 2px 8px rgba(240, 101, 149, 0.4);
+        transition: all 0.3s ease;
+
+
+    }
+</style>
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+<div class="quiz-container">
+    <img src="titles/level3-title.png" alt="Quiz True or False - Level 3 Space Cadets" class="titulo-level3">
+    </h1>
+    <div id="question-container">
+        <p id="question-text"></p>
+    </div>
+    <div id="answer-buttons" class="btn-grid"></div>
+    <button id="hint-btn" class="next-btn">🛸Show Hint🛸</button>
+    <div id="hint-container" class="hide feedback-container">
+        <p id="hint-text"></p>
+    </div>
+
+
+    <div id="feedback-container" class="hide">
+        <p id="feedback-text"></p>
+    </div>
+
+    <button id="next-btn" class="next-btn hide">Next Question🪐</button>
+
+    <a href="../../nivelgame.html">
+                <button class="voltar" id="voltar-pro-menu-gametime">Back to the <br> Game Menus</button>
+    </a>
+     <a href="../../lobby.html">
+                <button class="choose" id="voltar-pro-menu-gametime">Back to the Lobby🌟</button>
+    </a>
+</div>
+
+<div id="win-message" class="hidden">
+    <h2>🎉 Quiz Completed!🌞</h2>
+    <p id="final-score"></p>
+    <p id="final-feedback"></p>
+    <button id="restart-btn" class="next-btn" onclick="window.location.href='../verdadeiro_falso/index.html'">Play Again☄️</button>
+    <button id="exit-btn" class="next-btn" onclick="window.location.href='../../nivelgame.html'">Return to the Games Menu🌟</button>
+    <button id="exit-btn" class="next-btn" onclick="window.location.href='../../lobby.html'">Return to the Lobby🌟</button>
+</div>
+
+<script src="main.js"></script>
+<script src="../../main.js"></script>
+</body>
+</html>

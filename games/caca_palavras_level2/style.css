@@ -1,0 +1,304 @@
+/* ===================== */
+/* Global Styles         */
+/* ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: white;
+    font-family: sans-serif;
+}
+.titulo-level2{
+    display: block;
+    margin: 0 auto;
+    opacity: 100%;
+   
+    max-width: 750px; /* Ajuste o tamanho conforme necessário */
+    filter: 
+        saturate(2) 
+        /* 3. Aumenta o brilho da imagem */
+        brightness(1) 
+        /* 4. Adiciona uma sombra/brilho para harmonizar */
+        drop-shadow(0 0 15px rgba(255, 165, 0, 0.6)) /* Brilho laranja intenso */
+        drop-shadow(0 0 25px rgba(255, 255, 0, 0.3)); /* Brilho amarelo mais suave */
+}
+
+.words-to-find2{
+    display: block;
+    margin: 0%;
+    max-width:250px ;
+    align-items: center; 
+    padding: 5%;
+
+}
+/* ===================== */
+/* Gradiente padrão      */
+/* ===================== */
+:root {
+    --gradient: linear-gradient(100deg, rgb(250, 148, 46) 5%, rgb(237, 186, 66) 50%, rgb(249, 230, 56) 100%);
+}
+
+/* ===================== */
+/* Game Container        */
+/* ===================== */
+.game-container {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem auto;
+    position: relative;
+    max-width: 950px;
+    width: 95%;
+    text-align: center;
+}
+
+.game-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    padding: 2rem;
+    background: var(--gradient);
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* ===================== */
+/* Headers               */
+/* ===================== */
+h1 {
+    font-size: 3rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.word-search-gradiente {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+/* ===================== */
+/* Game Description      */
+/* ===================== */
+.game-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: justify;
+    font-style: italic;
+    position: relative;
+}
+
+.game-description::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+/* ===================== */
+/* Main Game Area        */
+/* ===================== */
+.main-game-area {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .main-game-area {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* ===================== */
+/* Word Search Container */
+/* ===================== */
+.word-search-container {
+    flex-grow: 1;
+    overflow-x: auto;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 3px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    border-radius: 0.75rem;
+    position: relative;
+}
+
+#grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid transparent;
+    border-radius: 0.75rem;
+    background: var(--gradient);
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.grid-cell {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 0.25rem;
+}
+
+.grid-cell:hover {
+    background: var(--gradient);
+}
+
+.selected {
+    background: var(--gradient);
+    color: black;
+}
+
+.found {
+    background: var(--gradient);
+    color: white;
+}
+
+/* ===================== */
+/* Word List             */
+/* ===================== */
+.words-to-find {
+    flex-basis: 250px;
+    flex-shrink: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--gradient);
+}
+
+#word-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+#word-list li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#word-list li.found-word {
+    background: var(--gradient);
+    text-decoration: line-through;
+    color: white;
+}
+
+/* ===================== */
+/* Win Message           */
+/* ===================== */
+#win-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+}
+
+#win-message.hidden {
+    display: none;
+}
+
+#win-message::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    background: var(--gradient);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+#next-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    background: var(--gradient);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+#next-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+#voltar-pro-menu-gametime{
+     background: linear-gradient(100deg, rgb(243, 116, 32) 5%, rgb(252, 195, 52) 50%, rgb(244, 219, 33) 100%);
+            color: #fff;
+            border: none;
+            border-radius: 1rem; /* Borda arredondada */
+            padding: 10px 15px;
+            margin-top: 50px;
+            
+            /* Fonte e Estilo do Texto */
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            align-self: flex-start;
+            /* Sombra e Animação */
+            box-shadow: 0 0 10px rgba(185, 51, 238, 0.7);
+           
+}

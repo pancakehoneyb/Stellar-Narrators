@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;  /* Safari */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* Internet Explorer/Edge */
+    user-select: none;          /* Padrão */
+
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-image: url('src/img/background_espaco.png'); /* Insira aqui o caminho para a sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    position: relative;    
+}
+
+a{
+    text-decoration: none;
+}
+
+#botao-jogos {
+    z-index: 9999;    /* garante que fique acima dos outros elementos */
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
+#welcome-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem 2rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    padding: 5%;
+    max-width: 750px; /* Ajuste o tamanho conforme necessário */
+   
+    filter: 
+        saturate(1) 
+        /* 3. Aumenta o brilho da imagem */
+        brightness(1) 
+        drop-shadow(0 0 10px rgba(185, 51, 238, 0.7)) /* Brilho interno suave */
+        drop-shadow(0 0 20px rgba(185, 51, 238, 0.4)); /* Brilho externo mais espalhado */
+
+        
+}
+
+/* Estilo para os quadros */
+.quadro {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.quadro img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+
+    /* --- NOVOS FILTROS PARA HARMONIZAÇÃO --- */
+    /* Ajusta o brilho e contraste para um visual mais integrado com o fundo escuro */
+    filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+    /* drop-shadow cria uma sombra colorida que pode simular o brilho do quadro */
+    /* Opcional: Adicionar uma leve opacidade se ainda estiverem muito claras */
+    opacity: 0.95; 
+}
+
+/* Efeito de hover (opcional): para interatividade */
+.quadro:hover {
+    transform: translate(-50%, -50%) scale(1.05); /* Leve aumento ao passar o mouse */
+    z-index: 10; /* Garante que o item em hover esteja acima dos outros */
+}
+
+/* Posicionamento de cada quadro */
+#quadro-terra {
+    top: 50%;
+    left: 20%;
+    width: 30%; /* Ajuste o tamanho conforme necessário */
+
+    filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 15px rgba(0, 255, 100, 0.6)); /* Sombra verde */
+}
+
+#quadro-sol {
+    top: 50%;
+    left: 50%;
+    width: 30%;
+
+    opacity: 90%;
+    filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 30px rgba(255, 180, 0, 0.9)); /* Laranja-Amarelo mais forte */    
+}
+
+#quadro-cme {
+    top: 50%;
+    left: 80%;
+    width: 30%;
+    filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 15px rgba(255, 0, 255, 0.6)); /* Sombra magenta/roxa */
+}
+/*
+ * Arquivo CSS para a página de seleção de personagens.
+ * Aprimorado para melhor organização e responsividade.
+ */
+
+/* ==================================== */
+/* Estilos Globais e do Fundo Estrelado */
+/* ==================================== */
+
+/* O canvas será posicionado como um fundo fixo */
+#starCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Coloca o canvas atrás de todo o conteúdo */
+    z-index: -1; 
+    overflow: hidden; 
+    /* Fundo com gradiente e estrelas */
+    background: radial-gradient(ellipse 60% 20% at 50% 40%, rgba(255, 255, 255, 0.01), transparent 80%),
+                radial-gradient(ellipse at center, #0a0f1c 0%, #050812 60%, #000000 100%);
+    background-blend-mode: screen;
+}
+
+/* ============================ */
+/* Layout e Conteúdo Principal  */
+/* ============================ */
+h1 {
+    color: white; /* Garante que o título seja visível no fundo escuro */
+    text-align: center;
+    padding-top: 2rem;
+    font-family: sans-serif; /* Uma fonte simples para o exemplo */
+}
+
+#characters {
+    /* Usa Flexbox para um layout responsivo dos cartões */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+    /* Adiciona perspectiva para o efeito 3D de virar o cartão */
+    perspective: 1000px; 
+}
+
+/* ============================== */
+/* Estilos do Cartão que Vira     */
+/* ============================== */
+.character-card {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+        
+/* Gira o cartão 180 graus quando o mouse passa por cima */
+.character-card:hover {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: white;
+    /* Esconde a parte de trás do elemento que está virado */
+    backface-visibility: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: transform 0.8s, opacity 0.4s;
+}
+        
+/* A imagem da frente desaparece ao passar o mouse */
+.character-card:hover .card-front {
+    opacity: 0;
+}
+
+.card-front img {
+    width: 130%;
+    height: auto;
+    border-radius: 0.75rem;
+    object-fit: cover;
+}
+
+.card-front2 img {
+    width: 140%;
+    height: auto;
+    border-radius: 0.75rem;
+    object-fit: cover;
+}
+        
+        
+.card-back {
+    transform: rotateY(180deg); /* O lado de trás já começa virado */
+    text-align: center;
+}
+        
+.card-back h2 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.card-back p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* ================= */
+/* Estilos do Botão  */
+/* ================= */
+button {
+    cursor: pointer;
+}
+button:focus {
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+#back-button {
+    padding: 1em 2em;
+}
+#start-button {
+    padding: 0.5em 1em;
+}
+
+#back-button, #start-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    background-color: #8A2BE2;
+    color: white;
+    border-radius: 1rem;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Adiciona uma transição suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#back-button:hover, #start-button:hover {
+    /* Efeito de hover mais suave */
+    transform: translateY(-2px); 
+    background-color: #7a25c9;
+}
+
+#title-choice-cosmic-narrator {
+    max-width: 1200px;
+    align-items: center;
+    margin-top: 10px;
+    display: fixed;
+}

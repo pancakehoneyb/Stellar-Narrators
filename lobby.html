@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Weather Tales - Nasa Space Apps</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background:url("src/img/background2.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            margin: 0;
+            height: 100vh;
+            filter: brightness(1.2) saturate(1.3);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #texto-cme, #texto-earthlings, #texto-sol {
+            height: auto;
+            display: block;
+            margin: 0 auto -20px auto;
+        }
+        #texto-cme { width: 65%; transform: rotate(-7deg); }
+        #texto-earthlings { width: 50%; transform: rotate(7deg); }
+        #texto-sol { width: 50%; transform: rotate(-2deg); }
+
+        #title-choice-cosmic-narrator {
+            position: fixed; /* fixa o botão na tela */
+            top: 4px;     /* distância do topo */
+
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5%;
+            max-width: 800px;
+            filter: saturate(1) brightness(1)
+                drop-shadow(0 0 10px rgba(185, 51, 238, 0.7))
+                drop-shadow(0 0 20px rgba(185, 51, 238, 0.4));
+        }
+
+        #container-lobby {
+            width: 100%;
+            height: 100%;
+            background-image: url('src/img/background_espaco.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .titulo_imagem {
+            
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%; /* A imagem nunca será mais larga que seu pai */
+              /* Mantém a proporção da imagem */
+            display: block; 
+            
+
+        }
+
+        .botoes {
+            /* Adicione estas propriedades para fixar o elemento */
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000; /* Garante que os botões fiquem acima de outros elementos */
+
+            /* Mantenha o Flexbox para alinhar os botões dentro do contêiner */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* BOTÃO DE GALERIA */
+        #botao-galeria {
+            background: linear-gradient(90deg, #b933ee, #4e8ef7);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 18px;
+            border-radius: 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(185, 51, 238, 0.7);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        #botao-galeria:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(185, 51, 238, 0.9);
+        }
+
+        /* BOTÃO DE JOGOS */
+        #botao-jogos {
+            background: linear-gradient(90deg, #b933ee, #4e8ef7);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 18px;
+            border-radius: 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(185, 51, 238, 0.7);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        #botao-jogos:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(185, 51, 238, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <main id="container-lobby">
+        <div class="titulo_imagem" >
+            <img src="src/imgapps/CHOOSE-YOUR_COSMIC_NARRATOR_.webp" alt="" id="title-choice-cosmic-narrator" >
+        </div>
+
+        <div id="nasa-iniciar">
+            <div class="quadro" id="quadro-terra">
+                <a href="pessoas.html">
+                    <img src="src/imgapps/earthlings.png" alt="" id="texto-earthlings">
+                    <img src="src/img/Frame_1__1_-removebg-preview.png" alt="EARTH">
+                </a>
+            </div>
+            <div class="quadro" id="quadro-sol">
+                <a href="solar-flare/index.html">
+                    <img src="src/imgapps/solarflare.png" alt="" id="texto-sol">
+                    <img src="src/img/Group_1-removebg-preview.png" alt="SUN">
+                </a>
+            </div>
+            <div class="quadro" id="quadro-cme">
+                <a href="cme/index.html">
+                    <img src="src/imgapps/cme.png" alt="" id="texto-cme">
+                    <img src="src/img/Frame_1__2_-removebg-preview.png" alt="EMC">
+                </a>
+            </div>
+            <div class="botoes">
+                <!-- BOTÃO QUE LIBERA APÓS ACESSAR UM QUADRINHO -->
+                <button id="botao-galeria" onclick="window.location.href='galeria/galeria.html'">🖼️ Acessar Galeria 🖼️</button>
+
+                <!-- BOTÃO QUE LIBERA APÓS ACESSAR UM QUADRINHO -->
+                <button id="botao-jogos" onclick="window.location.href='nivelgame.html'">🎮 Acessar Jogos 🎮</button>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

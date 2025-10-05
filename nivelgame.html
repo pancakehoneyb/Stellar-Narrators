@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmic Weather Tales - Nasa Space Apps</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../style.css">
+    <style>
+
+       
+        /* Paleta de Cores */
+        :root {
+       
+            --deep-space-blue: #0F1E3D;
+            --stellar-yellow: #FFD700;
+            --sunset-orange: #FFA500;
+            --galactic-green: #00FF00;
+            --cosmic-pink: #FF69B4;
+            --space-ice-cyan: #00FFFF;
+            --nebula-purple: #8A2BE2;
+        }
+
+        /* Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            color: white;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--deep-space-blue);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Contêiner da Caixa */
+        .container-box {
+           background: rgba(0, 0, 0, 0.7);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem auto;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            max-width: 950px;
+            width: 95%;
+            text-align: center;
+        }
+        
+        h1{
+            
+          
+            margin-bottom: 1rem;
+            font-family: fredok;
+        }
+        
+        .word-search-gradiente {
+            /* Gradiente de fundo aplicado ao texto */
+            background: linear-gradient(100deg, rgba(247, 84, 212, 1) 5%, rgb(191, 91, 227) 50%, rgb(123, 162, 255) 100%);
+    
+             /* Faz o gradiente aparecer dentro do texto */
+             -webkit-background-clip: text;
+            background-clip: text;
+
+            /* Torna o texto transparente para mostrar o gradiente */
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+
+             /* Estilos adicionais */
+             font-size: 3em;
+             font-weight: bold;
+           
+        
+        }
+
+
+
+        /* Estilos para os Botões de Nível */
+        .level-selection {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .level-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform:capitalize;
+            text-decoration: none;
+            color: var(--deep-space-blue);
+            background-color: var(--nebula-purple);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+            width: 360px;
+            
+        }
+        h5{
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform:capitalize;
+            text-decoration: none;
+            color: black;
+
+        }
+        .level-button:hover {
+            transform: translateY(-3px);
+            background-color: var(--nebula-purple);
+            color: white;
+        }
+
+        #level1{
+                background: linear-gradient(100deg, rgb(249, 44, 204) 5%, rgb(185, 51, 238) 50%, rgb(187, 43, 254) 100%);
+        }
+
+        #level2{
+                background: linear-gradient(100deg, rgb(250, 148, 46) 5%, rgb(237, 186, 66) 50%, rgb(249, 230, 56) 100%);
+        }
+        #level3{
+                background: linear-gradient(100deg, rgb(30, 251, 52) 5%, rgb(114, 247, 61) 50%, rgb(69, 78, 248) 100%);
+        }
+        #h3{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: gray;
+            margin-bottom: 1rem;
+        }
+
+        #game-time{
+            display: block;
+            margin: 0 auto;
+            opacity: 100%;
+   
+            
+            filter: 
+                    saturate(1) 
+                    /* 3. Aumenta o brilho da imagem */
+                    brightness(1) 
+                    drop-shadow(0 0 10px rgba(185, 51, 238, 0.7)) /* Brilho interno suave */
+                    drop-shadow(0 0 20px rgba(185, 51, 238, 0.4)); /* Brilho externo mais espalhado */
+        }
+        #voltar{
+                background-color: #8A2BE2;
+        }
+        
+    </style>
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+
+   <div class="container-box">
+        <img src="src/imgapps/GAMETIMECHOICEYOURLEVEL _.png" alt="Game time, choice your level" id="game-time">
+        <h3 id="h3">🌟 It's time to practice your space weather knowledge! 🌟</h3>
+        <div class="level-selection">
+            <a id="level1" href="games/caca_palavras/index.html" class="level-button">Level 1 - Explores🪐<h5>For Elementary Students </h5></a>
+
+            <a id="level2" href="games/caca_palavras_level2/index.html" class="level-button">Level 2 - Astronauts☄️<h5>For Middle Students </h5></a>
+            <a id="level3" href="games/verdadeiro_falso/index.html" class="level-button">Level 3 - Space Cadets🌌<h5>For High School Students</h5>
+            </a>
+            <a href="lobby.html">
+                <button class="level-button" id="voltar">Back to Lobby🌟</button>
+            </a>
+        </div>
+    </div>
+  
+<script src="main.js"></script>
+<script src="../../main.js"></script>
+</body>
+</html>
