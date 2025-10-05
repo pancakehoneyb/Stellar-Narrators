@@ -215,22 +215,28 @@
 }
 
 #completion-message {
-    display: none; /* starts hidden */
+    display: none;
     color: #6b20b3;
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-    margin-top: 20px;
     padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.979);
     border: 2px solid #6b20b3;
     border-radius: 12px;
     box-shadow: 0 0 15px #6b20b3, 0 0 30px #6b20b306;
     animation: fadeIn 1s ease-in-out forwards;
+    
+    /* Novo código para centralizar a div */
+    position: fixed; /* Isso a fixa na tela */
+    top: 50%; /* Move para o centro vertical */
+    left: 50%; /* Move para o centro horizontal */
+    transform: translate(-50%, -50%); /* Ajusta para que o centro da div fique alinhado ao centro da tela */
+    z-index: 1000; /* Garante que a div fique na frente de outros elementos */
 }
 
 /* fade-in animation */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translate(-50%, -60px); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
 }
