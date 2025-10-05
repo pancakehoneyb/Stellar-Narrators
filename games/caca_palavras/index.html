@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Search: Space</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+<div class="game-container">
+   <img src="titles/Level1-Title.png" alt="Word Search about Space Weather - Level 1 Explores" class="titulo-level1">
+    <p class="game-description">
+       NASA monitors the SUN to understand SPACE WEATHER The Sun is a dynamic, ever-changing star. It releases massive amounts of ENERGY through events like SOLAR FLARES. These explosions can send particles into space. NOAA, in turn, monitors space weather conditions to help us prepare. When these particles reach EARTH, they can cause the beautiful AURORAS in the sky, also known as the Northern and Southern Lights.
+    </p>
+    <div class="main-game-area">
+        <div class="word-search-container">
+            <div id="grid"></div>
+        </div>
+        <div class="words-to-find">
+            <img src="titles/Words to Find_1.png" alt="words to find" class="words-to-find1">
+            <ul id="word-list"></ul>
+             <a href="../../nivelgame.html">
+                <button class="choose" id="voltar-pro-menu-gametime">Back to the Games Menu☄️</button>
+            </a>
+            <a href="../../lobby.html">
+                <button class="choose" id="voltar-pro-menu-gametime">Back to the Lobby🌟</button>
+            </a>
+        </div>
+        
+    </div>
+   
+</div>
+
+<div id="win-message" class="hidden">
+    <p>🎉 Congratulations! You found all the words!🌞</p>
+    
+    <button id="next-btn">Return to the Games Menu☄️</button>
+    <button id="next-btn">Return to the Lobby🌟</button>
+
+</div>
+
+<script src="main.js"></script>
+<script src="../../main.js"></script>
+</body>
+</html>

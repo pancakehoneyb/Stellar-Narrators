@@ -1,0 +1,76 @@
+{
+  "name": "cosmic-weather-tales",
+  "version": "1.0.0",
+  "description": "Uma experiência interativa sobre clima espacial para a NASA Space Apps Challenge",
+  "main": "index.html",
+  "directories": {
+    "css": "./css",
+    "js": "./js",
+    "src": "./src",
+    "games": "./games",
+    "characters": {
+      "astronauta": "./astronauta",
+      "agricultor": "./agricultor",
+      "operador_de_eletricidade": "./operador_de_eletricidade",
+      "pilota": "./pilota",
+      "estudante": "./estudante"
+    }
+  },
+  "scripts": {
+    "dev": "live-server --port=3000 --host=localhost",
+    "build": "npm run minify:css && npm run minify:js",
+    "minify:css": "cleancss -o dist/style.min.css css/*.css",
+    "minify:js": "uglifyjs js/*.js -o dist/scripts.min.js --compress --mangle",
+    "lint:css": "stylelint css/*.css",
+    "lint:js": "eslint js/*.js",
+    "test": "jest",
+    "serve": "http-server -p 8080 -c-1",
+    "analyze": "webpack-bundle-analyzer dist/stats.json"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "clean-css-cli": "^5.6.2",
+    "uglify-js": "^3.17.4",
+    "stylelint": "^15.10.3",
+    "eslint": "^8.47.0",
+    "jest": "^29.6.2",
+    "http-server": "^14.1.1",
+    "webpack-bundle-analyzer": "^4.9.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "keywords": [
+    "nasa",
+    "space-apps",
+    "climate-espacial",
+    "educacao",
+    "interactive",
+    "web-game"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/cosmic-weather-tales.git"
+  },
+  "license": "MIT",
+  "performance": {
+    "budget": {
+      "images": "2MB",
+      "videos": "10MB",
+      "scripts": "500KB",
+      "styles": "100KB"
+    }
+  },
+  "accessibility": {
+    "wcag": "AA",
+    "features": [
+      "keyboard-navigation",
+      "screen-reader-support",
+      "color-contrast",
+      "alt-texts"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Search: Space</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+<div class="game-container">
+    <img src="titles/level2-title.png" alt="Word Search about Space Weather - Level 1 Astronauts" class="titulo-level2">
+    <p class="game-description"> 
+       A solar storm is like a giant eruption from the Sun. It launches a large amount of PARTICLES , ENERGY , and material into space.
+When this eruption comes toward Earth, it disrupts our planet's magnetic field, causing a GEOMAGNETIC STORM.
+The effects can include:  <br> <br>
+•	BLACKOUTS in radio and power grids. <br>
+•	Stunning AURORAS in the sky. <br>
+•	A bright flash of light called a SOLAR FLARE. <br>
+•	A RADIATION STORM , or a wave of solar particles launched into space at high speed. <br> 
+•	A massive cloud of solar material, called a CORONAL MASS EJECTION (CME) , that moves away from the Sun. <br> 
+But don't worry: Earth's atmosphere and magnetic field act like a shield, protecting us from any direct harm. <br><br>
+What causes all this? The Sun has magnetic fields that twist and stretch, like rubber bands. When they break and reconnect, they release a huge amount of energy, creating the storm.
+
+    </p>
+    <div class="main-game-area">
+        <div class="word-search-container">
+            <div id="grid"></div>
+        </div>
+        <div class="words-to-find">
+            <img src="titles/WordsFind_2.png" alt="Words to Find" class="words-to-find2">
+            <ul id="word-list"></ul>
+
+            <a href="../../nivelgame.html">
+                <button class="choose" id="voltar-pro-menu-gametime">Back to the Games Menu</button>
+            </a>
+
+             <a href="../../lobby.html">
+                <button class="choose" id="voltar-pro-menu-gametime">Back to the Lobby🌟</button>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="win-message" class="hidden">
+    <p>🎉 Congratulations! You found all the words!🌞</p>
+    <button id="next-btn">Return to the Games Menu☄️</button>
+    <button id="next-btn">Return to the Lobby🌟</button>
+</div>
+
+<script src="main.js"></script>
+<script src="../../main.js"></script>
+</body>
+</html>

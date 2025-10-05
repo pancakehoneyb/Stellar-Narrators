@@ -1,0 +1,212 @@
+/* ===================== */
+/* Global Styles         */
+/* ===================== */
+:root {
+    --main-gradient: linear-gradient(100deg, rgb(49, 243, 68), rgb(26, 68, 255), rgb(69, 78, 248));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;  
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;
+    color: white;
+}
+
+body {
+    background: linear-gradient(to right, #000000, #000a14);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.btn, .next-btn, h1, .word-search-gradiente {
+    background: var(--main-gradient);
+    background-size: 400% 400%;
+}
+
+.quiz-container {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 30px var(--main-gradient);
+    margin: 0%;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    
+}
+
+h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 10px var(--main-gradient);
+    margin-bottom: 1rem;
+}
+
+.word-search-gradiente {
+    background: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#question-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 20px;
+    margin-bottom: 20px;
+   
+}
+
+#question-text {
+    font-size: 1.2em;
+}
+
+.btn-grid {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn, .next-btn {
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 0.75rem;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover:not(.correct):not(.wrong), .next-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.btn.correct {
+    background: #28a745 !important; /* verde */
+    animation: none !important; /* remove animação do gradiente */
+    cursor: default;
+}
+
+.btn.wrong {
+    background: #dc3545 !important; /* vermelho */
+    animation: none !important; /* remove animação do gradiente */
+    cursor: default;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#feedback-container, .feedback-container {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 0.75rem;
+    font-style: italic;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.next-btn {
+    margin-top: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+/* ===================== */
+/* Win Message           */
+/* ===================== */
+#win-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.85);
+    padding: 3rem 4rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 0 25px var(--main-gradient);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+}
+
+#win-message h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+#win-message p {
+    font-size: 1.2rem;
+}
+
+#win-message.hidden {
+    display: none;
+}
+
+.titulo-level3{
+   display: block;
+    margin: 0 auto;
+   
+    
+    /* 1. Mantenha a imagem grande, mas LIMITADA a 95% do seu elemento pai */
+    /* Se o pai tem 950px, a imagem terá no máximo 902.5px */
+    max-width: 100%; 
+    
+    /* 2. Garante que a imagem use a largura máxima disponível */
+    width: 100%; 
+    height: auto;
+    filter: 
+         saturate(1.8) 
+        /* 3. Ajusta o brilho da imagem */
+        brightness(1) 
+        /* 4. Adiciona um brilho/sombra que imita um gradiente azul-verde */
+        drop-shadow(0 0 10px rgba(0, 200, 255, 0.5)) /* Azul claro para o brilho */
+        drop-shadow(0 0 20px rgba(0, 255, 150, 0.3)); /* Verde-água mais espalhado */
+}
+
+#voltar-pro-menu-gametime{
+     background: linear-gradient(100deg, rgb(32, 77, 255) 5%, rgb(158, 227, 10) 50%, rgb(109, 243, 60) 100%);
+            color: #fff;
+            border: none;
+            border-radius: 1rem; /* Borda arredondada */
+            padding: 10px 15px;
+            margin-top: 50px;
+            
+            /* Fonte e Estilo do Texto */
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            align-self: flex-start;
+            /* Sombra e Animação */
+            box-shadow: 0 0 10px rgba(185, 51, 238, 0.7);
+           
+}
+
+.voltar {
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 0.50rem;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+   
+}

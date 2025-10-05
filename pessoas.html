@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Weather Tales - Nasa Space Apps</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #character-selection-btn {
+            /* Gradiente de Cor */
+            background: linear-gradient(45deg, #FF6B6B, #F06595);
+            color: #fff;
+            border: none;
+            border-radius: 1rem; /* Borda arredondada */
+            padding: 5px 10px;
+            
+            /* Fonte e Estilo do Texto */
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            
+            /* Sombra e Animação */
+            box-shadow: 0 2px 8px rgba(240, 101, 149, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        #character-selection-btn:hover {
+            background: linear-gradient(45deg, #F06595, #FF6B6B);
+            box-shadow: 0 2px 8px rgba(240, 101, 149, 0.6);
+            transform: scale(1.05); /* Aumenta o tamanho */
+        }
+
+        #character-selection-btn:active {
+            box-shadow: 0 1px 5px rgba(240, 101, 149, 0.3);
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+    
+    <div class="container">
+        <img src="src/imgapps/CHOOSEYOURCHARACTER_.png" alt="Meet the characters" class="logo">
+        <div id="characters">
+            <!-- Card do Astronauta -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/Astronauta.png" alt="Astronaut" style= "width:250px">
+                </div>
+                <div class="card-back">
+                    <h2>Astronaut🧑🏻‍🚀</h2>
+                    <p>Name: Captain Ethain Parker</p>
+                    <p>Age: 38 years old</p>
+                    <p>Personality: Courageous, disciplined, and curious</p>
+                    <a href="/astronauta/index.html">
+                        <button class="choose" id="character-selection-btn">Select Astronaut</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card do Fazendeiro -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/Farmer.png" alt="Farmer">
+                </div>
+                <div class="card-back">
+                    <h2>Farmer👨🏻‍🌾</h2>
+                    <p>Name: James Miller</p>
+                    <p>Age: 62 years old</p>
+                    <p>Personality: Patient, observant, nature lover</p>
+                    <a href="/fazendeiro/index.html">
+                        <button class="choose" id="character-selection-btn">Select Farmer</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card do Operador de Eletricidade -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/OperadorEletrica.png" alt="Operador Eletrica">
+                </div>
+                <div class="card-back">
+                    <h2>Eletrical Operator🧲</h2>
+                    <p>Name: Michael Carter</p>
+                    <p>Age: 45 years old</p>
+                    <p>Personality: Intelligent and determined</p>
+                    <a href="/operador_de_eletricidade/index.html">
+                        <button class="choose" id="character-selection-btn">Select Operator</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card do Piloto -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/AirplanePilot.png" alt="Pilot">
+                </div>
+                <div class="card-back">
+                    <h2>Airplane Pilot✈️</h2>
+                    <p>Name: Emily Davis</p>
+                    <p>Age: 40 years old</p>
+                    <p>Personality: Calm, responsible and focused</p>
+                    <a href="/pilota/index.html">
+                        <button class="choose" id="character-selection-btn">Select Airplane Pilot</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da Pessoa Comum -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/PessoaComum.png" alt="Comum Person">
+                </div>
+                <div class="card-back">
+                    <h2>Common Person👩🏽</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/pessoacomum/index.html" alt="Common Person">
+                        <button class="choose" id="character-selection-btn">Select Common Person</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da Operador de satelite -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/SatelliteOperator.png" alt="Satellite Operator" style="width:180px">
+                </div>
+                <div class="card-back">
+                    <h2>Satellite Operator📡</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/operador_de_satelite/index.html" alt="Satellite Operator">
+                        <button class="choose" id="character-selection-btn">Select Satellite Operator</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da Cientista espacial -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/SpaceScientist.png" alt="Space Scientist" style="width:180px">
+                </div>
+                <div class="card-back">
+                    <h2>Space Scientist🔭</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/cientista_espacial/index.html" alt="Space Scientist">
+                        <button class="choose" id="character-selection-btn">Select Space Scientist</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da Engenheiro -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/Engineer.png" alt="Engineer" style="width:180px">
+                </div>
+                <div class="card-back">
+                    <h2>Engineer🏠</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/engenheiro/index.html" alt="Engineer">
+                        <button class="choose" id="character-selection-btn">Select Engineer</button>
+                    </a>
+                </div>
+            </div>
+
+                <!-- Card da Guarda Florestal -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/ForestRanger.png" alt="Forest Ranger" style="width:180px">
+                </div>
+                <div class="card-back">
+                    <h2>Forest Ranger🌲</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/guarda_florestal/index.html" alt="Forest Ranger">
+                        <button class="choose" id="character-selection-btn">Select Forest Ranger</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da TI -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/ITProfessional.png" alt="IT Professional" style="width:180px">
+                </div>
+                <div class="card-back">
+                    <h2>IT Professional👩‍💻</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/ti/index.html" alt="IT Professional">
+                        <button class="choose" id="character-selection-btn">Select IT Professional</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da Salva vidas -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/LifeGuard.png" alt="Life Guard" style="width:180px">
+                </div>
+                <div class="card-back">
+                    <h2>Life Guard🛟</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/salva-vidas/index.html" alt="Life Guard">
+                        <button class="choose" id="character-selection-btn">Select Life Guard</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da Pescador -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/Pescador.png" alt="Fisherman">
+                </div>
+                <div class="card-back">
+                    <h2>Fisherman🎣</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/pescador/index.html" alt="Fisherman">
+                        <button class="choose" id="character-selection-btn">Select Fisherman</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da Fotografo -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/Photographer.png" alt="Photographer" style="width:180px">
+                </div>
+                <div class="card-back">
+                    <h2>Photographer📷</h2>
+                    <p>Name:Liam Andersen</p>
+                    <p>Age: 41 years old</p>
+                    <p>Personality: Patient, passionate and observant</p>
+                    <a href="/fotografo/index.html" alt="Photographer">
+                        <button class="choose" id="character-selection-btn">Select Photographer</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da chef -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/Chef.png" alt="Chef" style="width:180px">
+                </div>
+                <div class="card-back">
+                    <h2>Chef</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/chef/index.html" alt="Chef">
+                        <button class="choose" id="character-selection-btn">Select Chef</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card da video game poducers -->
+            <div class="character-card">
+                <div class="card-front">
+                    <img src="src/personagens/VGProducers.png" alt="Video Game Producers" style="width:180px">
+                </div>
+                <div class="card-back">
+                    <h2>Video Game Producers</h2>
+                    <p>Name:Sophia Turner</p>
+                    <p>Age: 16 years old</p>
+                    <p>Personality: Curious, creative, passionate about science</p>
+                    <a href="/vg_producers/index.html" alt="Video Game Producers">
+                        <button class="choose" id="character-selection-btn">Select Video Game Producers</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <button id="back-button" onclick="window.location.href='lobby.html'">Back to lobby🌟</button>
+    </div>
+
+            <!-- BOTÃO QUE LIBERA APÓS ACESSAR UM QUADRINHO -->
+        <button id="botao-jogos" onclick="window.location.href='nivelgame.html'">🎮 Acessar Jogos</button>
+    </main>
+
+    <script>
+        // Verifica se já acessou algum quadrinho
+        const botaoJogos = document.getElementById("botao-jogos");
+        const acessou = localStorage.getItem("quadrinhoAcessado");
+        if (acessou === "true") {
+            botaoJogos.style.display = "inline-block";
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+/* =======================================
+   Componentes - Estilos reutilizáveis
+   ======================================= */
+
+/* Canvas de estrelas otimizado */
+.star-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none; /* Melhora performance */
+    will-change: transform; /* Otimização para animações */
+    background: radial-gradient(ellipse 60% 20% at 50% 40%, rgba(255, 255, 255, 0.01), transparent 80%),
+                radial-gradient(ellipse at center, #0a0f1c 0%, #050812 60%, #000000 100%);
+    background-blend-mode: screen;
+}
+
+/* Vídeo de fundo otimizado */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    z-index: -100;
+    filter: brightness(1.2) saturate(1.3);
+}
+
+.video-background--blur {
+    filter: brightness(0.5) saturate(1.3) blur(5px) !important;
+}
+
+/* Logo com efeitos */
+.logo {
+    display: block;
+    margin: 0 auto;
+    padding: 5%;
+    max-width: 750px;
+    filter: saturate(1) 
+            brightness(1) 
+            drop-shadow(0 0 10px rgba(185, 51, 238, 0.7)) 
+            drop-shadow(0 0 20px rgba(185, 51, 238, 0.4));
+    transition: var(--transition-smooth);
+}
+
+.logo:hover {
+    filter: saturate(1.2) 
+            brightness(1.1) 
+            drop-shadow(0 0 15px rgba(185, 51, 238, 0.9)) 
+            drop-shadow(0 0 25px rgba(185, 51, 238, 0.6));
+    transform: scale(1.02);
+}
+
+/* Quadros do lobby */
+.quadro {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.quadro img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.9) contrast(1.1);
+    opacity: 0.95;
+    transition: var(--transition-smooth);
+}
+
+.quadro:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    z-index: 10;
+}
+
+.quadro:hover img {
+    filter: brightness(1) contrast(1.2);
+    opacity: 1;
+}
+
+/* Posicionamento específico dos quadros */
+.quadro--terra {
+    top: 50%;
+    left: 20%;
+    width: 30%;
+}
+
+.quadro--terra img {
+    filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 15px rgba(0, 255, 100, 0.6));
+}
+
+.quadro--sol {
+    top: 50%;
+    left: 50%;
+    width: 30%;
+}
+
+.quadro--sol img {
+    filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 30px rgba(255, 180, 0, 0.9));
+}
+
+.quadro--cme {
+    top: 50%;
+    left: 80%;
+    width: 30%;
+}
+
+.quadro--cme img {
+    filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 15px rgba(255, 0, 255, 0.6));
+}
+
+/* Cards de personagens */
+.character-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: var(--spacing-large);
+    perspective: 1000px;
+}
+
+.character-card {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+.character-card:hover {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-medium);
+    box-sizing: border-box;
+    color: var(--text-white);
+    backface-visibility: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: var(--blur-effect);
+    transition: transform 0.8s ease, opacity 0.4s ease;
+}
+
+.card-face--front img {
+    width: 130%;
+    height: auto;
+    border-radius: 0.75rem;
+    object-fit: cover;
+}
+
+.card-face--back {
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+.character-card:hover .card-face--front {
+    opacity: 0;
+}
+
+.card-face--back h2 {
+    margin: var(--spacing-small) 0;
+    font-size: var(--font-size-medium);
+}
+
+.card-face--back p {
+    font-size: var(--font-size-small);
+    margin-bottom: var(--spacing-medium);
+    line-height: 1.4;
+}
+
+/* Tela de boas-vindas */
+.welcome-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-white);
+    background: var(--background-dark);
+    padding: var(--spacing-medium) var(--spacing-large);
+    margin: var(--spacing-medium);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-glow);
+    backdrop-filter: var(--blur-effect);
+}
+
+/* Animação de brilho */
+.glow-animation {
+    width: 500px;
+    height: 400px;
+    background-image: url('../src/img/Frame4.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: glowPulse 3s infinite alternate ease-in-out;
+}
+
+@keyframes glowPulse {
+    0% { filter: brightness(100%); }
+    50% { filter: brightness(150%); }
+    100% { filter: brightness(100%); }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .character-grid {
+        gap: var(--spacing-medium);
+    }
+    
+    .character-card {
+        width: 150px;
+        height: 225px;
+    }
+    
+    .quadro {
+        width: 40% !important;
+    }
+    
+    .quadro--terra { left: 25%; }
+    .quadro--sol { left: 50%; }
+    .quadro--cme { left: 75%; }
+    
+    .logo {
+        max-width: 90%;
+        padding: 2%;
+    }
+}
+
+@media (max-width: 480px) {
+    .character-grid {
+        flex-direction: column;
+        gap: var(--spacing-medium);
+    }
+    
+    .character-card {
+        width: 180px;
+        height: 270px;
+    }
+    
+    .welcome-screen {
+        margin: var(--spacing-small);
+        padding: var(--spacing-medium);
+    }
+    
+    .glow-animation {
+        width: 300px;
+        height: 240px;
+    }
+}
