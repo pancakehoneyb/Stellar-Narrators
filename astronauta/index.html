@@ -59,10 +59,31 @@
             <span class="visually-hidden">Próximo</span>
         </button>
     </div>
+    <button class="level-button" id="iniciarAudioBtn">
+    ▶ Listen
+    </button>
+ 
+
+    !-- no ultimo slide aparece a opçao de ir p lobby ou menu de games ou pessoas --!
+
     <div id="completion-message" style="display:none;">
         ✅ You have completed at least one comic!
+        <a href="../nivelgame.html">
+            <button>Game Menu</button>
+        </a>
+        <a href="../lobby.html">
+            <button>Back to Lobby</button>
+        </a>
+        <a href="../pessoas.html">
+            <button>Back to People</button>
+        </a>
     </div>
 
+    <audio id="audioSlide1" src="astronauta-audios/astronauta-fala1-audio-generated-IA.mp3" preload="auto"></audio>
+    <audio id="audioSlide2" src="astronauta-audios/astronauta - fala 2-AI-generated content.mp3" preload="auto"></audio>
+    <audio id="audioSlide3" src="astronauta-audios/astronauta - fala 3 -AI-generated content.mp3" preload="auto"></audio>
+    <audio id="audioSlide4" src="astronauta-audios/astronauta - fala 4-AI-generated content.mp3" preload="auto"></audio>
+    <audio id="audioSlide5" src="astronauta-audios/astronauta - fala 5 -AI-generated content.mp3" preload="auto"></audio>
 
     <script>
         // marca que o usuário acessou um dos quadrinhos

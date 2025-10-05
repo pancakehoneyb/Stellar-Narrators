@@ -74,3 +74,99 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+
+//audio 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const carouselElement = document.getElementById('carouselExampleFade');
+    const iniciarBtn = document.getElementById('iniciarAudioBtn');
+    
+    // NOVO: Variável de controle para o primeiro clique
+    let audioIsActive = false; 
+    
+    // Referências aos áudios (MANTENHA os IDs no seu HTML)
+    const audioSlide1 = document.getElementById('audioSlide1'); 
+    const completionMessage = document.getElementById("completion-message");
+    
+    const audios = [
+        audioSlide1,
+        document.getElementById('audioSlide2'),
+        document.getElementById('audioSlide3'),
+        document.getElementById('audioSlide4'),
+        document.getElementById('audioSlide5')
+    ];
+
+    // Função para parar e resetar todos os áudios
+    function stopAllAudios() {
+        audios.forEach(audio => {
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        });
+    }
+
+    // =======================================================
+    // 1. LÓGICA DO BOTÃO 'INICIAR' (AGORA CONFIGURA audioIsActive)
+    // =======================================================
+    if (iniciarBtn && audioSlide1) {
+        iniciarBtn.addEventListener('click', function() {
+            // SÓ TOCA SE AINDA NÃO ESTIVER ATIVO
+            if (!audioIsActive) {
+                audioSlide1.play().then(() => {
+                    // Se o play for bem-sucedido:
+                    audioIsActive = true; 
+                   
+                }).catch(error => {
+                    console.error("Erro ao tentar tocar o primeiro áudio:", error);
+                    // Opcional: manter o botão visível se o play falhar
+                });
+            }
+        });
+    }
+
+    // =======================================================
+    // 2. LÓGICA DO CARROSSEL (AGORA DEPENDE DE audioIsActive)
+    // =======================================================
+
+    // Detecta o INÍCIO da mudança de slide (para parar o áudio anterior)
+    carouselElement.addEventListener('slide.bs.carousel', function (event) {
+        if (audioIsActive) { // SÓ PARA SE JÁ ESTIVER ATIVO
+            stopAllAudios();
+        }
+    });
+    
+    // NOVO: Função para exibir a mensagem de conclusão
+    function showCompletionMessage() {
+        if (completionMessage) {
+            // Marca o quadrinho como completado aqui, se for o momento correto
+            // localStorage.setItem("comicCompleted", "true"); 
+            completionMessage.style.display = "block";
+            completionMessage.classList.add("fade-in");
+        }
+    }
+    
+    // Detecta o FIM da mudança de slide (para tocar o novo áudio)
+    carouselElement.addEventListener('slid.bs.carousel', function (event) {
+        // SÓ TOCA ÁUDIOS SUBSEQUENTES SE JÁ TIVER CLICADO NO BOTÃO INICIAR
+        if (audioIsActive) {
+            const newSlideIndex = event.to; 
+            const audioToPlay = audios[newSlideIndex];
+            const isLastSlide = newSlideIndex === audios.length - 1; 
+
+            if (audioToPlay) {
+                audioToPlay.play().catch(error => {
+                    console.log("Audio play failed on slide change.", error);
+                });
+
+                // NOVO: Verifica se é o último áudio e adiciona o evento 'ended'
+                if (isLastSlide) {
+                    audioToPlay.removeEventListener('ended', showCompletionMessage); // Previne duplicidade
+                    audioToPlay.addEventListener('ended', showCompletionMessage);
+                }
+            }
+        }
+    });
+});

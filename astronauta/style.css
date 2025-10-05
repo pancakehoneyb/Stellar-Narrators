@@ -184,7 +184,7 @@
         }
 
 
-#voltar {
+#iniciarAudioBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,6 +203,28 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
+
+
+#voltar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background-color: #8A2BE2;
+    color: #fff;
+    border-radius: 1rem;
+    border: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+   
+}
+
 #voltar:hover {
     background-color: #7a25c9;
     transform: translateY(-3px) scale(1.03);
@@ -215,17 +237,34 @@
 }
 
 #completion-message {
-    display: none; /* starts hidden */
-    color: #6b20b3;
-    font-size: 22px;
+    /* Mantém a mensagem inicialmente escondida */
+    display: none; 
+
+    /* Centralização na Tela */
+    position: fixed; /* Fixa na viewport, independentemente da rolagem */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o próprio elemento */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+
+    /* Dimensões e Margens (ajuste conforme necessário) */
+    max-width: 60%; /* Garante que não seja muito larga em telas pequenas */
+    height: 40%;
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+    padding: 20px 30px; /* Aumenta o padding para melhor visual */
+    margin: 0; /* Remove a margin-top anterior que pode interferir na centralização */
+    right: -50px;
+    /* Estilos Visuais */
+    color: #ffffff; /* Cor da fonte branca para contraste no fundo escuro */
+    font-size: 1.8rem; /* Aumenta um pouco a fonte */
     font-weight: bold;
     text-align: center;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.5);
-    border: 2px solid #6b20b3;
-    border-radius: 12px;
-    box-shadow: 0 0 15px #6b20b3, 0 0 30px #6b20b306;
+    background: rgba(0, 0, 0, 0.7); /* Fundo mais escuro para destaque */
+    border: 3px solid #6b20b3; /* Borda mais grossa */
+    border-radius: 15px; /* Bordas um pouco mais arredondadas */
+    box-shadow: 0 0 20px #6b20b3, 0 0 40px rgba(107, 32, 179, 0.6); /* Brilho mais intenso */
+    
+    /* Animação (já existente) */
     animation: fadeIn 1s ease-in-out forwards;
 }
 
