@@ -71,7 +71,7 @@
             z-index: 1000; /* Garante que os botões fiquem acima de outros elementos */
 
             /* Mantenha o Flexbox para alinhar os botões dentro do contêiner */
-            display: flex;
+            display: none;
             flex-direction: row;
             justify-content: center;
             gap: 10px;
@@ -146,6 +146,15 @@
             </div>
         </div>
 
+        <script>
+            // JavaScript mais simples
+            const botoesDiv = document.querySelector('.botoes');
+            const acessou = localStorage.getItem("quadrinhoAcessado");
+            if (acessou === "true") {
+                botoesDiv.style.display = "flex";
+            }
+        </script>
     </main>
 </body>
 </html>
+
